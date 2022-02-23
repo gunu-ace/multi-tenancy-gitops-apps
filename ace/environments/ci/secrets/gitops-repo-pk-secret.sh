@@ -10,9 +10,8 @@ if [ -z ${SSH_PRIVATE_KEY_PATH} ]; then echo "Please set SSH_PRIVATE_KEY_PATH wh
 SEALED_SECRET_NAMESPACE=${SEALED_SECRET_NAMESPACE:-sealed-secrets}
 SEALED_SECRET_CONTOLLER_NAME=${SEALED_SECRET_CONTOLLER_NAME:-sealed-secrets}
 
-export GITOPS_KNOWN_HOSTS=$(ssh-keyscan ${GIT_BASEURL} 2>/dev/null | base64 -w0)
-#export GITOPS_PRIVATE_KEY=$(base64 ${SSH_PRIVATE_KEY_PATH})
-export GITOPS_PRIVATE_KEY=$(base64 -w0 ${SSH_PRIVATE_KEY_PATH})
+export GITOPS_KNOWN_HOSTS=$(ssh-keyscan ${GIT_BASEURL} 2>/dev/null | base64)
+export GITOPS_PRIVATE_KEY=$(base64 ${SSH_PRIVATE_KEY_PATH})
 
 envsubst < gitops-repo-pk-secret-template.yaml | kubeseal \
   --scope cluster-wide \
