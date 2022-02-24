@@ -6,15 +6,15 @@ spec:
   params:
     - name: is-config-repo-url
       type: string
-      default: git@github.com:ace-prod-ref/ace-config.git
+      default: git@github.com:gunu-ace/ace-config.git
 
     - name: is-infra-repo-url
       type: string
-      default: git@github.com:ace-prod-ref/ace-infra.git
+      default: git@github.com:gunu-ace/ace-infra.git
 
     - name: git-ops-repo-url
       type: string
-      default: git@github.com:ace-prod-ref/multi-tenancy-gitops-apps.git
+      default: git@github.com:gunu-ace/multi-tenancy-gitops-apps.git
 
     - name: git-ops-destination-directory
       type: string
@@ -156,7 +156,7 @@ spec:
         - name: GITHUB_HOST_URL
           value: api.github.com
         - name: REPO_FULL_NAME
-          value: ace-prod-ref/multi-tenancy-gitops-apps
+          value: gunu-ace/multi-tenancy-gitops-apps
         - name: HEAD
           value: $(context.pipeline.name)-$(context.pipelineRun.name)
         - name: BASE
